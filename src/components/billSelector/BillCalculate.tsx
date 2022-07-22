@@ -1,9 +1,16 @@
 import { CalculateContainer, BillSection, SectionContainer, TipSelector, NumberOfPeopleSection } from './BillCalculateStyle';
-import { useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 const BillCalculate = () => {
-    
-    const billValue = useRef();
+    const [billValue, setBillValue] = useState();
+    // const billValue = useRef();
+
+    // const typeValueOfBill = billValue.target.value;
+   const updateValue = useEffect(() => {
+       
+        // console.log(setBillValue(typeValueOfBill));
+    })
+
     return (
     <CalculateContainer>
         <SectionContainer>
@@ -11,7 +18,7 @@ const BillCalculate = () => {
             <div>
             <label>Bill</label>
             </div>
-        <input type='text' value={billValue.current} />
+        <input type='number' value={billValue} />
         </BillSection>
     <TipSelector>
         <label>Select Tip %</label>
@@ -29,6 +36,7 @@ const BillCalculate = () => {
             </div>
         <input type='text' />
         </NumberOfPeopleSection>
+        <button type="submit">Calck!</button>
         </SectionContainer>
         </CalculateContainer>
     )
