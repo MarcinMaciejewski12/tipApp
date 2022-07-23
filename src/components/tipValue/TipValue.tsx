@@ -1,13 +1,9 @@
 import { BillValueContainer, TipAmount, TotalPrice,ResetButton  } from "./TipValueStyle";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const TipValue = () => {
  const [tipValue, setTipValue] = useState(0);
-
-
-  useEffect((props: void) => {
-    const multipleRightValue = tipValue
-  })
+ 
 
     return <BillValueContainer>
     <TipAmount>
@@ -22,7 +18,7 @@ const TipValue = () => {
      <h1>Total</h1>
       <p>/person</p>
     </div>
-     <h2>{tipValue}</h2>
+     <h2>0</h2>
     </TotalPrice>
     <ResetButton>
        <h1>RESET</h1> 

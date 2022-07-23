@@ -1,15 +1,22 @@
 import { CalculateContainer, BillSection, SectionContainer, TipSelector, NumberOfPeopleSection } from './BillCalculateStyle';
-import { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 const BillCalculate = () => {
-    const [billValue, setBillValue] = useState();
-    // const billValue = useRef();
+    const [billValue, setBillValue] = useState('');
+    const [howManyPeople, setHowManyPeople] = useState('');
 
-    // const typeValueOfBill = billValue.target.value;
-   const updateValue = useEffect(() => {
-       
-        // console.log(setBillValue(typeValueOfBill));
-    })
+    const billHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setBillValue(event.target.value);
+
+    }
+
+    const peopleHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setHowManyPeople(event.target.value);
+    }
+
+    const multiplyBill = () => {
+        console.log('click');
+    }
 
     return (
     <CalculateContainer>
@@ -18,7 +25,7 @@ const BillCalculate = () => {
             <div>
             <label>Bill</label>
             </div>
-        <input type='number' value={billValue} />
+        <input type='text' placeholder='$' onChange={billHandler} value={billValue} />
         </BillSection>
     <TipSelector>
         <label>Select Tip %</label>
@@ -28,15 +35,15 @@ const BillCalculate = () => {
         <div>20%</div>
         <div>25%</div>
         <div>50%</div>
-        <input type="text" value="%"/>
+        <input type="number" placeholder="%"/>
     </TipSelector>
         <NumberOfPeopleSection>
             <div>
             <label>Number of People</label>
             </div>
-        <input type='text' />
+        <input type='number' placeholder='people' value={howManyPeople} onChange={peopleHandler} />
         </NumberOfPeopleSection>
-        <button type="submit">Calck!</button>
+        <button type="submit" onClick={() => multiplyBill}>Calck!</button>
         </SectionContainer>
         </CalculateContainer>
     )
