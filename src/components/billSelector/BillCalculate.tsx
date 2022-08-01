@@ -2,20 +2,21 @@ import { CalculateContainer, BillSection, SectionContainer, TipSelector, NumberO
 import React, { useState } from 'react';
 
 const BillCalculate = () => {
-    const [billValue, setBillValue] = useState('');
-    const [howManyPeople, setHowManyPeople] = useState('');
-
+    const [billValue, setBillValue] = useState(0);
+    const [howManyPeople, setHowManyPeople] = useState(0);
+    const [billCalculate, setBillCalculate] = useState(0);
     const billHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setBillValue(event.target.value);
-
+        setBillValue(parseInt(event.target.value));
+        console.log(billValue);
     }
 
     const peopleHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setHowManyPeople(event.target.value);
+        setHowManyPeople(parseInt(event.target.value));
     }
 
-    const multiplyBill = () => {
-        console.log('click');
+    const billCalculateHandler = () => {
+        setBillCalculate(billValue / howManyPeople);
+        console.log(billCalculate);
     }
 
     return (
@@ -25,7 +26,7 @@ const BillCalculate = () => {
             <div>
             <label>Bill</label>
             </div>
-        <input type='text' placeholder='$' onChange={billHandler} value={billValue} />
+        <input type='number' placeholder='$' onChange={billHandler} value={billValue} />
         </BillSection>
     <TipSelector>
         <label>Select Tip %</label>
@@ -43,7 +44,7 @@ const BillCalculate = () => {
             </div>
         <input type='number' placeholder='people' value={howManyPeople} onChange={peopleHandler} />
         </NumberOfPeopleSection>
-        <button type="submit" onClick={() => multiplyBill}>Calck!</button>
+        <button type="submit" value={billCalculate} onClick={billCalculateHandler}>Calck!</button>
         </SectionContainer>
         </CalculateContainer>
     )

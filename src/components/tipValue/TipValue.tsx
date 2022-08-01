@@ -27,6 +27,4 @@ const TipValue = () => {
     
 }
 
-
-
 export default TipValue;
