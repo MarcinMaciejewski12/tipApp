@@ -1,10 +1,11 @@
 import { CalculateContainer, BillSection, SectionContainer, TipSelector, NumberOfPeopleSection } from './BillCalculateStyle';
-import React, { useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 const BillCalculate = () => {
     const [billValue, setBillValue] = useState(1);
     const [howManyPeople, setHowManyPeople] = useState(1);
     const [billCalculate, setBillCalculate] = useState(0);
+
 
     const billHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setBillValue(parseInt(event.target.value));
@@ -16,10 +17,19 @@ const BillCalculate = () => {
         console.log(howManyPeople);
     }
 
-    const billCalculateHandler = () => {
-        setBillCalculate(billValue / howManyPeople);
-        console.log(billCalculate);
-    }
+    
+    useEffect(()=> {
+        console.log(howManyPeople)
+    },[howManyPeople])
+
+    useEffect(() => {
+        console.log(billValue)
+    },[billValue]);
+
+
+    useEffect(()=>{
+        console.log(billCalculate)
+    },[billCalculate]);
 
     return (
     <CalculateContainer>
@@ -28,7 +38,7 @@ const BillCalculate = () => {
             <div>
             <label>Bill</label>
             </div>
-        <input type='number' placeholder='$' onChange={billHandler} value={billValue} />
+        <input type='number' placeholder='$' onChange={(e)=> setBillValue(parseInt(e.target.value))} value={billValue} />
         </BillSection>
     <TipSelector>
         <label>Select Tip %</label>
@@ -44,9 +54,9 @@ const BillCalculate = () => {
             <div>
             <label>Number of People</label>
             </div>
-        <input type='number' placeholder='people' value={howManyPeople} onChange={peopleHandler} />
+        <input type='number' placeholder='people' value={howManyPeople} onChange={(e)=> setHowManyPeople(parseInt(e.target.value))} />
         </NumberOfPeopleSection>
-        <button type="submit" value={billCalculate} onClick={billCalculateHandler}>Calck!</button>
+        <button type="submit" value={billCalculate} onClick={()=> setBillCalculate(billValue / howManyPeople)}>Calck!</button>
         </SectionContainer>
         </CalculateContainer>
     )
