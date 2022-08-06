@@ -2,9 +2,10 @@ import { CalculateContainer, BillSection, SectionContainer, TipSelector, NumberO
 import React, { useState } from 'react';
 
 const BillCalculate = () => {
-    const [billValue, setBillValue] = useState(0);
-    const [howManyPeople, setHowManyPeople] = useState(0);
+    const [billValue, setBillValue] = useState(1);
+    const [howManyPeople, setHowManyPeople] = useState(1);
     const [billCalculate, setBillCalculate] = useState(0);
+
     const billHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setBillValue(parseInt(event.target.value));
         console.log(billValue);
@@ -12,6 +13,7 @@ const BillCalculate = () => {
 
     const peopleHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
         setHowManyPeople(parseInt(event.target.value));
+        console.log(howManyPeople);
     }
 
     const billCalculateHandler = () => {
