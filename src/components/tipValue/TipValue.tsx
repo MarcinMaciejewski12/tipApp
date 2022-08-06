@@ -1,9 +1,8 @@
 import { BillValueContainer, TipAmount, TotalPrice,ResetButton  } from "./TipValueStyle";
-import { useState } from "react";
-
-const TipValue = () => {
- const [tipValue, setTipValue] = useState(0);
- 
+interface TipProps  {
+  calculateBill: number
+}
+const TipValue = (props:TipProps) => {
 
     return <BillValueContainer>
     <TipAmount>
@@ -11,7 +10,7 @@ const TipValue = () => {
      <h1>Tip Amount</h1>
       <p>/person</p>
     </div>
-    <h2>{tipValue}</h2>
+    <h2>{props.calculateBill}</h2>
     </TipAmount>
     <TotalPrice>
     <div>

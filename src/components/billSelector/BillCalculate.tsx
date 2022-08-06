@@ -1,64 +1,44 @@
-import { CalculateContainer, BillSection, SectionContainer, TipSelector, NumberOfPeopleSection } from './BillCalculateStyle';
-import React, { FC, useEffect, useState } from 'react';
+import PercentSelector from "./PercentSelector";
+import { CalculateContainer, BillSection, SectionContainer, NumberOfPeopleSection } from './BillCalculateStyle';
+import React, { MouseEventHandler, useEffect, useState } from 'react';
+import TipValue from "../tipValue/TipValue";
+
+
 
 const BillCalculate = () => {
-    const [billValue, setBillValue] = useState(1);
-    const [howManyPeople, setHowManyPeople] = useState(1);
+    const [billValue, setBillValue] = useState<number>(0);
+    const [howManyPeople, setHowManyPeople] = useState<number>(0);
     const [billCalculate, setBillCalculate] = useState(0);
 
-
-    const billHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setBillValue(parseInt(event.target.value));
-        console.log(billValue);
-    }
-
-    const peopleHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setHowManyPeople(parseInt(event.target.value));
-        console.log(howManyPeople);
-    }
-
-    
-    useEffect(()=> {
-        console.log(howManyPeople)
-    },[howManyPeople])
-
     useEffect(() => {
-        console.log(billValue)
-    },[billValue]);
+    },[billValue, howManyPeople]);
 
-
-    useEffect(()=>{
-        console.log(billCalculate)
-    },[billCalculate]);
+    const bill  = () => {
+        setBillCalculate(billValue / howManyPeople);
+    }
 
     return (
+    <>
     <CalculateContainer>
         <SectionContainer>
         <BillSection>
             <div>
             <label>Bill</label>
             </div>
-        <input type='number' placeholder='$' onChange={(e)=> setBillValue(parseInt(e.target.value))} value={billValue} />
+        <input type='number' placeholder='$' value={billValue} onChange={(e)=> setBillValue(parseInt(e.target.value))}  />
         </BillSection>
-    <TipSelector>
-        <label>Select Tip %</label>
-        <div>5%</div>
-        <div>10%</div>
-        <div>15%</div>
-        <div>20%</div>
-        <div>25%</div>
-        <div>50%</div>
-        <input type="number" placeholder="%"/>
-    </TipSelector>
+        <PercentSelector />
         <NumberOfPeopleSection>
             <div>
             <label>Number of People</label>
             </div>
         <input type='number' placeholder='people' value={howManyPeople} onChange={(e)=> setHowManyPeople(parseInt(e.target.value))} />
         </NumberOfPeopleSection>
-        <button type="submit" value={billCalculate} onClick={()=> setBillCalculate(billValue / howManyPeople)}>Calck!</button>
+        <button type="submit" onClick={bill} >Calck!</button>
         </SectionContainer>
         </CalculateContainer>
+        <TipValue calculateBill={billCalculate}/>
+        </>
     )
 }
 

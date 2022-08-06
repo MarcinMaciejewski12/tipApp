@@ -4,7 +4,6 @@ import TipValue from "../tipValue/TipValue";
 const MainCard = () => {
     return <>
     <BillCalculate />
-    <TipValue />
     </>
 }
 
