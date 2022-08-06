@@ -25,7 +25,7 @@ export const BillSection = styled.section`
     }
 
     & input {
-        width: 300px;
+        width: 350px;
         height: 35px;
         background: #e6e6e6;
         border: none;
@@ -37,7 +37,7 @@ export const BillSection = styled.section`
 export const TipSelector = styled.section`
     /* background: blue; */
     width: 100%;
-    height: 200px;
+    height: 150px;
     color: white;
 
     & label {
@@ -76,7 +76,6 @@ export const TipSelector = styled.section`
 export const NumberOfPeopleSection = styled.section`
     width: 100%;
     height: 50px;
-    /* display: flex; */
     justify-content:center;
     align-items: center;
 
@@ -87,11 +86,30 @@ export const NumberOfPeopleSection = styled.section`
         color: #575757;
     }
     & input {
-        width: 300px;
+        width: 350px;
         height: 35px;
         background: #e6e6e6;
         border: none;
         text-align: right;
         border-radius: 3px 3px 3px 3px;
+    }
+`
+
+export const CalcButtonSection = styled.section`
+    width: 100%;
+    height: 6vh;
+    margin-top: 7vh;
+    display: flex;
+    align-items: center;
+
+    & button {
+        border: none;
+        width: 350px;
+        height: 80%;
+        background: hsl(183, 100%, 23.52941176470588%);
+        color:#e6e6e6;
+        font-size: 20px;
+        border-radius: 5px 5px 5px 5px;
+        cursor: pointer;
     }
 `

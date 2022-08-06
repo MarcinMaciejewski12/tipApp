@@ -1,5 +1,5 @@
 import PercentSelector from "./PercentSelector";
-import { CalculateContainer, BillSection, SectionContainer, NumberOfPeopleSection } from './BillCalculateStyle';
+import { CalculateContainer, BillSection, SectionContainer, NumberOfPeopleSection, CalcButtonSection } from './BillCalculateStyle';
 import React, { MouseEventHandler, useEffect, useState } from 'react';
 import TipValue from "../tipValue/TipValue";
 
@@ -34,7 +34,9 @@ const BillCalculate = () => {
             </div>
         <input type='number' placeholder='people' value={howManyPeople} onChange={(e)=> setHowManyPeople(parseInt(e.target.value))} />
         </NumberOfPeopleSection>
-        <button type="submit" onClick={bill} >Calck!</button>
+        <CalcButtonSection>
+        <button type="submit" onClick={bill} >CALC!</button>
+        </CalcButtonSection>
         </SectionContainer>
         </CalculateContainer>
         <TipValue calculateBill={billCalculate}/>
