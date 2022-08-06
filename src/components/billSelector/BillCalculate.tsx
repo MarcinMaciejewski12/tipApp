@@ -1,18 +1,11 @@
 import { CalculateContainer, BillSection, SectionContainer, TipSelector, NumberOfPeopleSection } from './BillCalculateStyle';
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 const BillCalculate = () => {
     const [billValue, setBillValue] = useState(0);
     const [howManyPeople, setHowManyPeople] = useState(0);
     const [billCalculate, setBillCalculate] = useState(0);
-    // const billHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     setBillValue(parseInt(event.target.value));
-    //     console.log(billValue);
-    // }
-
-    // const peopleHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    //     setHowManyPeople(parseInt(event.target.value));
-    // }
+    
     useEffect(()=> {
         console.log(howManyPeople)
     },[howManyPeople])
@@ -20,11 +13,6 @@ const BillCalculate = () => {
     useEffect(() => {
         console.log(billValue)
     },[billValue]);
-
-    // const billCalculateHandler = () => {
-    //     setBillCalculate(billValue / howManyPeople);
-    //     console.log(billCalculate);
-    // }
 
     useEffect(()=>{
         console.log(billCalculate)
