@@ -35,7 +35,7 @@ const BillCalculate = () => {
         <input type='number' placeholder='people' value={howManyPeople} onChange={(e)=> setHowManyPeople(parseInt(e.target.value))} />
         </NumberOfPeopleSection>
         <CalcButtonSection>
-        <button type="submit" onClick={bill} >CALC!</button>
+        <button type="submit" onClick={bill}>CALC!</button>
         </CalcButtonSection>
         </SectionContainer>
         </CalculateContainer>
