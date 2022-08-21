@@ -10,68 +10,99 @@ const TipValue = {
         tip: 1.1,
         isClicked: false
    },
-   fiveTeenPer: {
+   fiveteenPer: {
         tip: 1.15,
         isClicked: false
    },
    twentyPer: {
-        tip: 1.20,
+        tip: 1.2,
         isClicked: false,
    },
    twentyFivePer: {
         tip: 1.25,
         isClicked: false,
     },
-    fifryPer: {
+    fiftyPer: {
         tip: 1.5,
         isClicked: false,
    }   
 }
 
-const PercentSelector = () => {
-    const [clicked, setClicked] = useState(true);
+interface buttonValue {
+    buttonValue: number;
+}
 
-    const clickHandler = () => {
+const PercentSelector = (props:buttonValue) => {
+    const [clickedFive, setClicked] = useState(true);
+    const [clickedTen, setClickTen] = useState(true);
+    const [clickedFiveteen, setClickFiveTeen] = useState(true);
+    const [clickedTwenty, setClickTwenty] = useState(true);
+    const [clickedTwentyfive, setClickTwentyFive] = useState(true);
+    const [clickedFifty, setClickFifty] = useState(true);
+
+    const clickFiveHandler = () => {
         setClicked(current => !current);
     }
+    const clickTenHandler = () => {
+        setClickTen(current => !current);
+    }
+    const clickFiveTeenHandler = () => {
+        setClickFiveTeen(current => !current);
+    }
+    const clickTwentyHandler = () => {
+        setClickTwenty(current => !current);
+    }
+    const clickTwentyFiveHandler = () => {
+        setClickTwentyFive(current => !current);
+    }
+    const clickFiftyHandler = () => {
+        setClickFifty(current => !current);
+    }
+
 
     const buttonValue = [
     <button
-    style={{background: clicked ?
+    key={TipValue.fivePer.tip}
+    style={{background: clickedFive ?
     'hsl(183, 100%, 23.52941176470588%)' :
     'hsl(183.0612244897959, 98.00000000000001%, 19.607843137254903%)'}}
-    onClick={clickHandler}
-    value={TipValue.fifryPer.tip}>5%</button>,
+    onClick={clickFiveHandler}
+    value={TipValue.fivePer.tip}>5%</button>,
     <button
-    style={{background: clicked ?
+    key={TipValue.tenPer.tip}
+    style={{background: clickedTen ?
     'hsl(183, 100%, 23.52941176470588%)' :
     'hsl(183.0612244897959, 98.00000000000001%, 19.607843137254903%)'}}
-    onClick={clickHandler}
-    value={TipValue.fivePer.tip}>10%</button>,
+    onClick={clickTenHandler}
+    value={TipValue.tenPer.tip}>10%</button>,
     <button 
-    style={{background: clicked ?
+    key={TipValue.fiveteenPer.tip}
+    style={{background: clickedFiveteen ?
     'hsl(183, 100%, 23.52941176470588%)' :
     'hsl(183.0612244897959, 98.00000000000001%, 19.607843137254903%)'}}
-    onClick={clickHandler}
-    value={TipValue.fivePer.tip}>15%</button>,
+    onClick={clickFiveTeenHandler}
+    value={TipValue.fiveteenPer.tip}>15%</button>,
     <button
-    style={{background: clicked ?
+    key={TipValue.twentyPer.tip}
+    style={{background: clickedTwenty ?
     'hsl(183, 100%, 23.52941176470588%)' :
     'hsl(183.0612244897959, 98.00000000000001%, 19.607843137254903%)'}}
-    onClick={clickHandler}
-    value={TipValue.fivePer.tip}>20%</button>,
+    onClick={clickTwentyHandler}
+    value={TipValue.twentyPer.tip}>20%</button>,
     <button
-    style={{background: clicked ?
+    key={TipValue.twentyFivePer.tip}
+    style={{background: clickedTwentyfive ?
     'hsl(183, 100%, 23.52941176470588%)' :
     'hsl(183.0612244897959, 98.00000000000001%, 19.607843137254903%)'}}
-    onClick={clickHandler}
-    value={TipValue.fivePer.tip}>25%</button>,
+    onClick={clickTwentyFiveHandler}
+    value={TipValue.twentyFivePer.tip}>25%</button>,
     <button 
-    style={{background: clicked ?
+    key={TipValue.fiftyPer.tip}
+    style={{background: clickedFifty ?
     'hsl(183, 100%, 23.52941176470588%)' :
     'hsl(183.0612244897959, 98.00000000000001%, 19.607843137254903%)'}}
-    onClick={clickHandler}
-    value={TipValue.fivePer.tip}>50%</button>];
+    onClick={clickFiftyHandler}
+    value={TipValue.fiftyPer.tip}>50%</button>];
    
     return  (
 <TipSelector>
