@@ -9,15 +9,10 @@ const BillCalculate = () => {
     const [billValue, setBillValue] = useState<number>(0);
     const [howManyPeople, setHowManyPeople] = useState<number>(0);
     const [billCalculate, setBillCalculate] = useState(0);
-    const [buttonValue, setButtonValue] = useState(0);
-
-    useEffect(() => {
-    },[billValue, howManyPeople]);
 
     const bill  = () => {
-        setBillCalculate(((billValue * buttonValue) / howManyPeople));
-        console.log(billValue);
-    }
+        setBillCalculate(billValue / howManyPeople);
+        }
 
     return (
     <>
@@ -29,7 +24,7 @@ const BillCalculate = () => {
             </div>
         <input type='number' placeholder='$' value={billValue} onChange={(e)=> setBillValue(parseInt(e.target.value))}  />
         </BillSection>
-        <PercentSelector buttonValue={buttonValue} />
+        <PercentSelector />
         <NumberOfPeopleSection>
             <div>
             <label>Number of People</label>

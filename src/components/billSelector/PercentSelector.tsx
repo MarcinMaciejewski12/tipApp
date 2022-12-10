@@ -28,11 +28,8 @@ const TipValue = {
    }   
 }
 
-interface buttonValue {
-    buttonValue: number;
-}
 
-const PercentSelector = (props:buttonValue) => {
+const PercentSelector = () => {
     const [clickedFive, setClicked] = useState(true);
     const [clickedTen, setClickTen] = useState(true);
     const [clickedFiveteen, setClickFiveTeen] = useState(true);
