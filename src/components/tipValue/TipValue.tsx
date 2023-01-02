@@ -1,23 +1,23 @@
 import React, { useState } from "react";
+import BillCalculate from "../billSelector/BillCalculate";
 import { BillValueContainer, TipAmount,ResetButton  } from "./TipValueStyle";
 interface TipProps  {
   calculateBill: number
+  zeroValue: any;
 }
-const TipValue = ({ calculateBill }:TipProps) => {
-  const [tipReset, setTipReset] = useState(0);
-const resetValue = () => {
-  setTipReset(calculateBill = tipReset);
-}
+const TipValue = ({ calculateBill, zeroValue }:TipProps) => {
+
+
    return <BillValueContainer>
     <TipAmount>
     <div>
      <h1>Tip Amount</h1>
       <p>/person</p>
     </div>
-    <h2>{calculateBill}</h2>
+    <h2>{calculateBill.toFixed(2)}</h2>
     </TipAmount>
     <ResetButton>
-       <h1>RESET</h1> 
+       <h1 onClick={zeroValue}>RESET</h1> 
         </ResetButton>
     </BillValueContainer>
     

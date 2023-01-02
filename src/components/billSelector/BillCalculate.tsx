@@ -13,6 +13,10 @@ const BillCalculate = () => {
     const bill  = () => {
         setBillCalculate(billValue / howManyPeople);
         }
+    const resetValue = () => {
+            setBillCalculate(0);
+        }
+
 
     return (
     <>
@@ -36,7 +40,7 @@ const BillCalculate = () => {
         </CalcButtonSection>
         </SectionContainer>
         </CalculateContainer>
-        <TipValue calculateBill={billCalculate}/>
+        <TipValue zeroValue={resetValue}  calculateBill={billCalculate}/>
         </>
     )
 }
