@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import BillCalculate from "../billSelector/BillCalculate";
+import React from "react";
 import { BillValueContainer, TipAmount,ResetButton  } from "./TipValueStyle";
 interface TipProps  {
   calculateBill: number

@@ -1,6 +1,6 @@
 import PercentSelector from "./PercentSelector";
 import { CalculateContainer, BillSection, SectionContainer, NumberOfPeopleSection, CalcButtonSection } from './BillCalculateStyle';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import TipValue from "../tipValue/TipValue";
 
 
