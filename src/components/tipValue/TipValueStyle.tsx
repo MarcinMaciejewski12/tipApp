@@ -14,6 +14,32 @@ export const TipAmount = styled.section`
     justify-content: space-between;
     align-items: center;
     color:hsl(183, 100%, 23.52941176470588%);
+    margin-bottom: 50px;
+    & div {
+        display: block;
+        height: 70px;
+        margin-left: 40px;
+        color: #e6e6e6;
+    }
+    & h1 {
+        margin-bottom: 0px;
+        font-weight: 5;
+    }
+    & p {
+        margin-top: -5px;
+        font-size: 12px;
+    }
+    & h2 {
+        margin-right: 40px;
+        font-size: 50px;
+    }
+`
+export const BillValue = styled.section`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color:hsl(183, 100%, 23.52941176470588%);
 
     & div {
         display: block;
@@ -36,6 +62,7 @@ export const TipAmount = styled.section`
 `
 export const ResetButton = styled.div`
     width: 100%;
+    background: red;
     display: flex;
     justify-content: center;
     align-items: center;

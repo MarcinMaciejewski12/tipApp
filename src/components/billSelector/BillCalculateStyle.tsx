@@ -77,6 +77,12 @@ export const TipSelector = styled.section`
     }
 `
 
+// ACTIVE BUTTON STYLE
+
+export const ActiveButton = styled.button`
+    background-color: hsl(183, 100%, 23.52941176470588%);
+`
+
 export const NumberOfPeopleSection = styled.section`
     width: 100%;
     height: 50px;
