@@ -47,7 +47,7 @@ export const TipSelector = styled.section`
         color: #575757;
         display: flex;
     }
-    & button {
+    /* & button {
         width: 80px;
         height: 40px;
         font-size: 25px;
@@ -63,7 +63,7 @@ export const TipSelector = styled.section`
         border: none;
         border-radius: 5px 5px 5px 5px;
         cursor: pointer;
-    }
+    } */
     & input {
         width: 150px;
         margin-left: 12px;
@@ -83,6 +83,29 @@ export const ActiveButton = styled.button`
     background-color: hsl(183, 100%, 23.52941176470588%);
 `
 
+export const DeactivatedButton  = styled.button`
+     background-color:hsl(183.0612244897959, 98.00000000000001%, 19.607843137254903%);
+`
+
+export const DefaultStyleButton = styled.button`
+background: none;
+border: none;
+width: 80px;
+        height: 40px;
+        font-size: 25px;
+        background:  hsl(183, 100%, 23.52941176470588%);
+        color: white;
+        margin: 4px;
+        display: flex;
+        align-items: center;
+        font-family: 'Poppins', sans-serif;
+        justify-content: space-around;
+        float: left;
+        font-weight: 800;
+        border: none;
+        border-radius: 5px 5px 5px 5px;
+        cursor: pointer;
+`
 export const NumberOfPeopleSection = styled.section`
     width: 100%;
     height: 50px;
