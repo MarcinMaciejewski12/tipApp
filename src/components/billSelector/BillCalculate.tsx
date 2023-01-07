@@ -3,20 +3,21 @@ import { CalculateContainer, BillSection, SectionContainer, NumberOfPeopleSectio
 import { useState } from 'react';
 import TipValue from "../tipValue/TipValue";
 
-
-
 const BillCalculate = () => {
     const [billValue, setBillValue] = useState<number>(0);
     const [howManyPeople, setHowManyPeople] = useState<number>(0);
     const [billCalculate, setBillCalculate] = useState(0);
 
+
     const bill  = () => {
         setBillCalculate(billValue / howManyPeople);
         }
+
     const resetValue = () => {
             setBillCalculate(0);
         }
 
+        
 
     return (
     <>

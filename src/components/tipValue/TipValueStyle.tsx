@@ -62,7 +62,6 @@ export const BillValue = styled.section`
 `
 export const ResetButton = styled.div`
     width: 100%;
-    background: red;
     display: flex;
     justify-content: center;
     align-items: center;
