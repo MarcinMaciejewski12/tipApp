@@ -11,6 +11,8 @@ const BillCalculate = () => {
 
     const bill  = () => {
         setBillCalculate(billValue / howManyPeople);
+        setBillValue(0);
+        setHowManyPeople(0);
         }
 
     const resetValue = () => {
