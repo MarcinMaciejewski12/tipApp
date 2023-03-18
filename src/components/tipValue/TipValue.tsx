@@ -2,9 +2,11 @@ import React from "react";
 import { BillValueContainer, TipAmount,ResetButton, BillValue  } from "./TipValueStyle";
 interface TipProps  {
   calculateBill: number
+  calculateTip: number
   zeroValue: any;
 }
-const TipValue = ({ calculateBill, zeroValue }:TipProps) =>
+const TipValue = ({ calculateBill, calculateTip, zeroValue }:TipProps) => {
+  return <>
 <BillValueContainer>
   <div>
   <BillValue>
@@ -19,12 +21,15 @@ const TipValue = ({ calculateBill, zeroValue }:TipProps) =>
       <h1>Tip</h1>
       <p>/person</p>
     </div>
-    <h2>{calculateBill.toFixed(2)}</h2>
+    <h2>{calculateTip.toFixed(2)}</h2>
     </TipAmount>
   </div>
   <ResetButton>
     <h1 onClick={zeroValue}>RESET</h1>
   </ResetButton>
 </BillValueContainer>
+</>
+}
+
 
 export default TipValue;

@@ -6,21 +6,27 @@ import TipValue from "../tipValue/TipValue";
 const BillCalculate = () => {
     const [billValue, setBillValue] = useState<number>(0);
     const [howManyPeople, setHowManyPeople] = useState<number>(0);
-    const [billCalculate, setBillCalculate] = useState(0);
-
-
-    const bill  = () => {
+    const [tipPerPerson, setTipPerPerson] = useState<number>(0);
+    const [billCalculate, setBillCalculate] = useState<number>(0);
+    const [updatePrc, setUpdatePrc] = useState<number>(0);
+    const [color, setColor] = useState(false);
+    const bill = () => {
         setBillCalculate(billValue / howManyPeople);
         setBillValue(0);
         setHowManyPeople(0);
-        }
+        setUpdatePrc(billValue / howManyPeople / tipPerPerson);
+    }
 
     const resetValue = () => {
             setBillCalculate(0);
+            setUpdatePrc(0);
         }
 
-        
+    const percentValue = (prc: number) => {
+            setTipPerPerson(prc);   
+        }
 
+    
     return (
     <>
     <CalculateContainer>
@@ -31,7 +37,7 @@ const BillCalculate = () => {
             </div>
         <input type='number' placeholder='$' value={billValue} onChange={(e)=> setBillValue(parseInt(e.target.value))}  />
         </BillSection>
-        <PercentSelector />
+        <PercentSelector click={percentValue} />
         <NumberOfPeopleSection>
             <div>
             <label>Number of People</label>
@@ -43,7 +49,7 @@ const BillCalculate = () => {
         </CalcButtonSection>
         </SectionContainer>
         </CalculateContainer>
-        <TipValue zeroValue={resetValue}  calculateBill={billCalculate}/>
+        <TipValue zeroValue={resetValue} calculateTip={billCalculate-updatePrc}  calculateBill={billCalculate}/>
         </>
     )
 }

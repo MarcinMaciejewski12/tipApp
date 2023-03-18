@@ -1,29 +1,49 @@
+
+import { useState } from 'react';
 import { TipSelector, DefaultStyleButton  } from "./BillCalculateStyle";
-import { useState } from "react";    
+
+
+
+
+const PercentSelector = (props: any) => {
+const [color, setColor] = useState(false);
 
 const buttons = [
-    <DefaultStyleButton value={1.005}>5%</DefaultStyleButton>,
-    <DefaultStyleButton value={1.010}>10%</DefaultStyleButton>,
-    <DefaultStyleButton value={1.015}>15%</DefaultStyleButton>,
-    <DefaultStyleButton value={1.025}>25%</DefaultStyleButton>,
-    <DefaultStyleButton value={1.050}>50%</DefaultStyleButton>,
+    {
+        name: '5%',
+        value: 1.005,
+    },
+    {
+        name: '10%',
+        value: 1.01,
+    },
+    {
+        name: '15%',
+        value: 1.015,
+    },
+    {
+        name: '20%',
+        value: 1.020,
+    },
+    {
+        name: '25%',
+        value: 1.025,
+    },
+    {
+        name: '50%',
+        value: 1.5,
+    },
 ];
-
-const PercentSelector = () => {
-const [choosePercent, setChoosePercent] = useState();
-const [choosenPercent, setChoosenPercent] = useState(false);
-   
-const percentValue = () => {
-    
-}
-
-
 
     return  (
 <TipSelector>
     <label>Select Tip %</label>
-        {buttons.map(e=> 
-         <div key={e.props.value} onClick={()=> percentValue()}>{e}</div>)}
+        {buttons.map(option => 
+         <DefaultStyleButton
+          key={option.value}
+          onClick={() => {props.click(option.value);}
+          }
+          >{option.name}</DefaultStyleButton>)}
 </TipSelector>
 )
 }
