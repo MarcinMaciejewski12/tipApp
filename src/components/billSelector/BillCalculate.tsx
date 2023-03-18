@@ -15,7 +15,7 @@ const BillCalculate = () => {
   const [tipPerPerson, setTipPerPerson] = useState<number>(0);
   const [billCalculate, setBillCalculate] = useState<number>(0);
   const [updatePrc, setUpdatePrc] = useState<number>(0);
-  const [selectedOption, setSelectedOption] = useState();
+  // const [selectedOption, setSelectedOption] = useState();
   const bill = () => {
     setBillCalculate(billValue / howManyPeople);
     setUpdatePrc(billValue / howManyPeople / tipPerPerson);
