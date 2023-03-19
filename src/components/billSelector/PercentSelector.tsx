@@ -1,8 +1,8 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { TipSelector, DefaultStyleButton } from "./BillCalculateStyle";
 
 const PercentSelector = (props: any) => {
-  const [color, setColor] = useState(false);
+  // const [color, setColor] = useState(false);
 
   const buttons = [
     {
